@@ -1,4 +1,4 @@
-# How to Productionize Large Language Models (LLMs)
+# LLM Productionization
 
 Understand LLMOps, architectural patterns, how to evaluate, fine tune & deploy HuggingFace generative AI models locally or on cloud.
 

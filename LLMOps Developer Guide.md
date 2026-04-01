@@ -1,4 +1,4 @@
-# A Developer’s Guide To LLMOps
+# LLMOps Developer Guide
 
 [Source](https://arize.com/blog-course/llmops-operationalizing-llms-at-scale/)
 

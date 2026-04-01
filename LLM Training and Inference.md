@@ -1,4 +1,4 @@
-# Understanding LLMs: A Comprehensive Overview from Training to Inference
+# LLM Training and Inference
 
 [Source](https://arxiv.org/abs/2401.02038): *A Comprehensive Overview of LLMs from Training to Inference*
 

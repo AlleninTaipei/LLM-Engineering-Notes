@@ -1,4 +1,4 @@
-# LLM: Parameters and Memory Estimation
+# LLM Parameters and Memory Estimation
 
 ## General understanding of VRAM requirements
 
