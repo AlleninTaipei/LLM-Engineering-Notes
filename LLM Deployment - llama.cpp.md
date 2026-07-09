@@ -378,19 +378,19 @@ The checkpoints and LoRA files saved during training can be used to continue tra
 
 Saving checkpoint files at regular intervals (-10, -20, -30) and generating .bin files serve important purposes in the model.
 
-**The .bin files allow you to apply the fine-tuning changes to the original model without needing to store or distribute entire copies of the fine-tuned model. This is particularly useful when working with large language models, as it significantly reduces storage and transfer requirements.**
+The .bin files allow you to apply the fine-tuning changes to the original model without needing to store or distribute entire copies of the fine-tuned model. This is particularly useful when working with large language models, as it significantly reduces storage and transfer requirements.
 
 |fine-tuning process|reason|
 |-|-|
-|**Saving intermediate checkpoints (-10, -20, -30)**|**Progress tracking**: These files allow you to monitor the model's improvement over time. You can compare performance at different stages of training.|
-||**Interruption recovery**: If the training process is interrupted, you can resume from the latest checkpoint rather than starting over.|
-||**Overfitting detection**: By evaluating the model at different checkpoints, you can detect if the model starts overfitting to the training data.|
-||**Best model selection**: Sometimes an earlier checkpoint might perform better on validation data than the final model. Having multiple checkpoints allows you to choose the best performing one.|
-|**Usage of .bin (LoRA) files**|**Efficient fine-tuning**: LoRA (Low-Rank Adaptation) is a technique that allows for efficient fine-tuning of large language models. The .bin files contain only the changes made to the original model, rather than the entire model state.|
-||**Smaller file size**: LoRA files are much smaller than full model checkpoints. In your case, the .bin files are about 40MB, while the full checkpoints (.gguf files) are about 120MB.|
-||**Flexibility**: LoRA adaptations can be applied to the base model to create the fine-tuned model, or they can be mixed and matched with other LoRA adaptations.|
-||**Versioning and experimentation**: You can keep multiple LoRA files for different fine-tuning experiments or versions, without needing to store multiple copies of the full model.|
-||**Deployment efficiency**: In some deployment scenarios, you can keep the large base model static and swap in different LoRA adaptations as needed, which is more efficient than loading entire fine-tuned models.|
+|Saving intermediate checkpoints (-10, -20, -30)|Progress tracking: These files allow you to monitor the model's improvement over time. You can compare performance at different stages of training.|
+||Interruption recovery: If the training process is interrupted, you can resume from the latest checkpoint rather than starting over.|
+||Overfitting detection: By evaluating the model at different checkpoints, you can detect if the model starts overfitting to the training data.|
+||Best model selection: Sometimes an earlier checkpoint might perform better on validation data than the final model. Having multiple checkpoints allows you to choose the best performing one.|
+|Usage of .bin (LoRA) files|Efficient fine-tuning: LoRA (Low-Rank Adaptation) is a technique that allows for efficient fine-tuning of large language models. The .bin files contain only the changes made to the original model, rather than the entire model state.|
+||Smaller file size: LoRA files are much smaller than full model checkpoints. In your case, the .bin files are about 40MB, while the full checkpoints (.gguf files) are about 120MB.|
+||Flexibility: LoRA adaptations can be applied to the base model to create the fine-tuned model, or they can be mixed and matched with other LoRA adaptations.|
+||Versioning and experimentation: You can keep multiple LoRA files for different fine-tuning experiments or versions, without needing to store multiple copies of the full model.|
+||Deployment efficiency: In some deployment scenarios, you can keep the large base model static and swap in different LoRA adaptations as needed, which is more efficient than loading entire fine-tuned models.|
 
 #### Comparison of Instruction Models and Normal Language Models
 
@@ -678,7 +678,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 
 #### llama-finetune.exe Command Help
 
-| **llama-finetune.exe**          | **Description**                                                                                              | **Default**                    |
+| llama-finetune.exe          | Description                                                                                              | Default                    |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------|
 | `-h, --help`                    | Show help message and exit                                                                                   |                                |
 | `--model-base FNAME`            | Path to the base model                                                                                       | `''`                           |
@@ -752,7 +752,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 
 ## Unix-like Shell Commands
 
-| **File and Directory Operations**   | **Description**                           | **Example**       |
+| File and Directory Operations   | Description                           | Example       |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `cp`          | Copy files and directories                | `cp source.txt destination.txt`         |
 | `mv`          | Move or rename files and directories      | `mv oldname.txt newname.txt`            |
@@ -764,7 +764,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `chown`       | Change file ownership                     | `chown user:group file.txt`             |
 | `touch`       | Update file timestamps or create empty files | `touch newfile.txt`                  |
 
-| **Text Processing**   | **Description**                           | **Example**                     |
+| Text Processing   | Description                           | Example                     |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `cat`         | Concatenate and display file contents     | `cat file.txt`                          |
 | `grep`        | Search text using patterns                | `grep 'pattern' file.txt`               |
@@ -777,7 +777,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `head`        | Output the first part of files            | `head -n 10 file.txt`                   |
 | `tail`        | Output the last part of files             | `tail -n 10 file.txt`                   |
 
-| **System Information**   | **Description**                           | **Example**                  |
+| System Information   | Description                           | Example                  |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `uname`       | Print system information                  | `uname -a`                              |
 | `uptime`      | Tell how long the system has been running | `uptime`                                |
@@ -788,7 +788,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `top`         | Display tasks and system resource usage   | `top`                                   |
 | `id`          | Display user and group IDs                | `id username`                           |
 
-| **Networking**   | **Description**                           | **Example**                          |
+| Networking   | Description                           | Example                          |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `ping`        | Send ICMP ECHO_REQUEST to network hosts   | `ping example.com`                      |
 | `wget`        | Non-interactive network downloader        | `wget https://example.com/file.txt`     |
@@ -797,7 +797,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `ftp`         | File Transfer Protocol client             | `ftp ftp.example.com`                   |
 | `ssh`         | OpenSSH SSH client (remote login program) | `ssh user@example.com`                  |
 
-| **File Compression and Archiving**   | **Description**                           | **Example**      |
+| File Compression and Archiving   | Description                           | Example      |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `tar`         | Archive files                             | `tar -cvf archive.tar directory/`       |
 | `gzip`        | Compress files                            | `gzip file.txt`                         |
@@ -805,7 +805,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `zip`         | Package and compress files                | `zip archive.zip file1 file2`           |
 | `unzip`       | Extract compressed files from a ZIP archive | `unzip archive.zip`                   |
 
-| **Shell Built-in Commands**   | **Description**                           | **Example**             |
+| Shell Built-in Commands   | Description                           | Example             |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `echo`        | Display a line of text                    | `echo "Hello, World!"`                  |
 | `cd`          | Change the shell working directory        | `cd /path/to/directory`                 |
@@ -817,7 +817,7 @@ As training progresses, the loss is computed and tracked at each iteration. The 
 | `unalias`     | Remove an alias                           | `unalias ll`                            |
 | `help`        | Display help for built-in commands        | `help cd`                               |
 
-| **Process Management**   | **Description**                           | **Example**                  |
+| Process Management   | Description                           | Example                  |
 |---------------|-------------------------------------------|-----------------------------------------|
 | `kill`        | Send a signal to a process                | `kill 1234`                             |
 | `killall`     | Kill processes by name                    | `killall processname`                   |

@@ -1,26 +1,26 @@
 # Common LLM-Related Files
 
-| **File Type** | **Description** |
+| File Type | Description |
 |---------------|-----------------|
-| **GGUF Model File** (`.gguf`) | A binary format used to store quantized language models for efficient local inference with `llama.cpp` and similar engines. Includes weights, tokenizer, and metadata. [GGUF Model File](#gguf-model-file)|
-| **GGML Model File** (`.bin`) | An earlier format for `ggml`-based models, now largely replaced by GGUF. Still used in legacy setups. |
-| **HF Model Weights** (`pytorch_model.bin`) | PyTorch serialized weights from Hugging Face Transformers. Often comes with `config.json` and tokenizer files. |
-| **Safetensors** (`.safetensors`) | A safer, faster alternative to PyTorch `.bin` files, offering memory-mapped model loading and protection against arbitrary code execution. |
-| **ONNX Model** (`.onnx`) | An Open Neural Network Exchange format for portable models across different frameworks (e.g., for inference optimization or edge deployment). |
-| **Dataset File** (`.json`, `.jsonl`, `.csv`) | Raw or structured data used to pretrain or fine-tune LLMs. JSONL is most common: one JSON object per line. [Get to know Dataset in Parquet Files](#get-to-know-dataset-in-parquet-files)|
-| **Instruction Dataset** (`.jsonl`) | A structured dataset used in instruction tuning. Entries include `instruction`, `input`, and `output` to mimic human task prompts. [Get to know Instruction Dataset](#get-to-know-instruction-dataset) |
-| **Tokenized Dataset** (`.arrow`, `.pkl`, `.pt`) | A preprocessed version of the dataset where text is already converted to token IDs for faster training. May be saved in Hugging Face’s `Arrow` format or as PyTorch/NumPy pickles. |
-| **Tokenizer Config** (`tokenizer.json`, `vocab.json`, `merges.txt`) | Files that define how text is split into tokens. Required when training or running a model. Vocab and merges are common in BPE-based tokenizers. |
-| **Model Config File** (`config.json`) | Stores architecture parameters like number of layers, hidden size, attention heads, etc. Used by training and inference scripts to construct model architecture. |
-| **Training Log** (`.log`, `.json`, `.csv`) | Output of training scripts (e.g., from Hugging Face Trainer, PyTorch Lightning, or TensorBoard logs). Used for tracking loss, accuracy, and other metrics over time. |
-| **Checkpoint Folder** (`checkpoint-*`) | Contains intermediate model weights during training. Useful for resuming training or picking the best model based on validation. |
-| **Merged Dataset** (`merged.jsonl`, `combined.json`) | A combined dataset formed by merging multiple instruction or dialogue datasets for unified fine-tuning. |
-| **Prompt Template File** (`.jinja`, `.json`, `.txt`) | Defines the format for wrapping instructions before feeding them to the model. Often used in prompt tuning and inference APIs. |
-| **LoRA Adapter File** (`adapter_model.bin`, `adapter_config.json`) | Stores Low-Rank Adaptation (LoRA) weights — lightweight model deltas for efficient fine-tuning. Used with base models. |
-| **Quantization Config** (`quant_config.json`) | Configuration file that specifies quantization parameters like bit-width, group size, or method (e.g., QLoRA). |
-| **PEFT Config** (`adapter_config.json`) | Parameter-Efficient Fine-Tuning configuration, defining what layers are trained and how the adapter is applied. |
-| **Evaluation Result File** (`eval_results.json`, `.csv`) | Stores model evaluation results on benchmark datasets, used for comparison and leaderboard submission. |
-| **API Serving Config** (`serving_config.json`, `.yaml`) | Specifies how the model is loaded and served via APIs, including model path, quantization, batching, etc. Often used with `vLLM`, `Text Generation Inference`, or `FastAPI`. |
+| GGUF Model File (`.gguf`) | A binary format used to store quantized language models for efficient local inference with `llama.cpp` and similar engines. Includes weights, tokenizer, and metadata. [GGUF Model File](#gguf-model-file)|
+| GGML Model File (`.bin`) | An earlier format for `ggml`-based models, now largely replaced by GGUF. Still used in legacy setups. |
+| HF Model Weights (`pytorch_model.bin`) | PyTorch serialized weights from Hugging Face Transformers. Often comes with `config.json` and tokenizer files. |
+| Safetensors (`.safetensors`) | A safer, faster alternative to PyTorch `.bin` files, offering memory-mapped model loading and protection against arbitrary code execution. |
+| ONNX Model (`.onnx`) | An Open Neural Network Exchange format for portable models across different frameworks (e.g., for inference optimization or edge deployment). |
+| Dataset File (`.json`, `.jsonl`, `.csv`) | Raw or structured data used to pretrain or fine-tune LLMs. JSONL is most common: one JSON object per line. [Get to know Dataset in Parquet Files](#get-to-know-dataset-in-parquet-files)|
+| Instruction Dataset (`.jsonl`) | A structured dataset used in instruction tuning. Entries include `instruction`, `input`, and `output` to mimic human task prompts. [Get to know Instruction Dataset](#get-to-know-instruction-dataset) |
+| Tokenized Dataset (`.arrow`, `.pkl`, `.pt`) | A preprocessed version of the dataset where text is already converted to token IDs for faster training. May be saved in Hugging Face’s `Arrow` format or as PyTorch/NumPy pickles. |
+| Tokenizer Config (`tokenizer.json`, `vocab.json`, `merges.txt`) | Files that define how text is split into tokens. Required when training or running a model. Vocab and merges are common in BPE-based tokenizers. |
+| Model Config File (`config.json`) | Stores architecture parameters like number of layers, hidden size, attention heads, etc. Used by training and inference scripts to construct model architecture. |
+| Training Log (`.log`, `.json`, `.csv`) | Output of training scripts (e.g., from Hugging Face Trainer, PyTorch Lightning, or TensorBoard logs). Used for tracking loss, accuracy, and other metrics over time. |
+| Checkpoint Folder (`checkpoint-*`) | Contains intermediate model weights during training. Useful for resuming training or picking the best model based on validation. |
+| Merged Dataset (`merged.jsonl`, `combined.json`) | A combined dataset formed by merging multiple instruction or dialogue datasets for unified fine-tuning. |
+| Prompt Template File (`.jinja`, `.json`, `.txt`) | Defines the format for wrapping instructions before feeding them to the model. Often used in prompt tuning and inference APIs. |
+| LoRA Adapter File (`adapter_model.bin`, `adapter_config.json`) | Stores Low-Rank Adaptation (LoRA) weights: lightweight model deltas for efficient fine-tuning. Used with base models. |
+| Quantization Config (`quant_config.json`) | Configuration file that specifies quantization parameters like bit-width, group size, or method (e.g., QLoRA). |
+| PEFT Config (`adapter_config.json`) | Parameter-Efficient Fine-Tuning configuration, defining what layers are trained and how the adapter is applied. |
+| Evaluation Result File (`eval_results.json`, `.csv`) | Stores model evaluation results on benchmark datasets, used for comparison and leaderboard submission. |
+| API Serving Config (`serving_config.json`, `.yaml`) | Specifies how the model is loaded and served via APIs, including model path, quantization, batching, etc. Often used with `vLLM`, `Text Generation Inference`, or `FastAPI`. |
 
 ## GGUF Model File
 
@@ -370,15 +370,15 @@ Scenario: You have a pre-trained LLaMA model stored in a GGUF file, and you want
 
 |Update the GGUF File|Notes|
 |-|-|
-|**Update Model Parameters**|The updated weights and biases are serialized into the GGUF file. The new classification layer’s weights are also added.|
-|**Update Vocabulary and Embeddings**|The new token “cinematography” is added to the vocabulary section. A new embedding vector corresponding to this token is included.|
-|**Rebuild GGUF File**|The GGUF file is rebuilt with the new parameters and vocabulary.|
-|**The metadata is updated to reflect the fine-tuning process**|Fine-Tuning Dataset: "Movie Reviews Sentiment Analysis Dataset"|
+|Update Model Parameters|The updated weights and biases are serialized into the GGUF file. The new classification layer’s weights are also added.|
+|Update Vocabulary and Embeddings|The new token “cinematography” is added to the vocabulary section. A new embedding vector corresponding to this token is included.|
+|Rebuild GGUF File|The GGUF file is rebuilt with the new parameters and vocabulary.|
+|The metadata is updated to reflect the fine-tuning process|Fine-Tuning Dataset: "Movie Reviews Sentiment Analysis Dataset"|
 ||Date of Fine-Tuning: "2024-08-23"|
 ||Task: Sentiment Analysis|
 ||Special Tokens: Added “cinematography”.|
 ||Recalculate Checksums: A new checksum is calculated to ensure the file’s integrity after the updates.|
-|**Save the New GGUF File**|The new file is saved as llama-2b-sentiment.gguf.|
+|Save the New GGUF File|The new file is saved as llama-2b-sentiment.gguf.|
 
 #### 6. Using the Fine-Tuned Model
 
@@ -401,11 +401,11 @@ The choice between Parquet and CSV is contingent on the specific requirements, u
 
 |Key Factors|Parquet|CSV|
 |-|-|-|
-|Storage Efficiency|**columnar storage layout offers superior storage efficiency due to its advanced encoding schemes and compression techniques, significantly reducing the storage footprint**|traditional row-based format|
-|Performance|**selectively reads relevant data for analytical queries, skipping the rest, which leads to a substantial increase in processing speed**|necessitate the reading of entire rows, even when only a subset of columns is required|
+|Storage Efficiency|columnar storage layout offers superior storage efficiency due to its advanced encoding schemes and compression techniques, significantly reducing the storage footprint|traditional row-based format|
+|Performance|selectively reads relevant data for analytical queries, skipping the rest, which leads to a substantial increase in processing speed|necessitate the reading of entire rows, even when only a subset of columns is required|
 |Data Types and Schema Evolution|It's adept at handling complex and nested data structures, making it ideal for structured and semi-structured data. It also supports schema evolution, facilitating the addition of new columns to existing Parquet files without necessitating a complete dataset rewrite.|It's limited to a flat, tabular format and lacks built-in support for complex data types or schema evolution.|
-|Interoperability|Not directly readable by humans, are compatible with a plethora of data processing frameworks and tools that support the Parquet format, such as Apache Spark, Apache Hive, and Apache Arrow.|**CSV files are universally compatible and can be easily manipulated using standard text editors or spreadsheet software.**|
-|Serialization and Data Compression|**column-level compression techniques which significantly reduces file sizes and enhancing I/O performance**|**However, the compression and serialization overhead may be lower for CSV compared to Parquet.**|
+|Interoperability|Not directly readable by humans, are compatible with a plethora of data processing frameworks and tools that support the Parquet format, such as Apache Spark, Apache Hive, and Apache Arrow.|CSV files are universally compatible and can be easily manipulated using standard text editors or spreadsheet software.|
+|Serialization and Data Compression|column-level compression techniques which significantly reduces file sizes and enhancing I/O performance|However, the compression and serialization overhead may be lower for CSV compared to Parquet.|
 |Schema Flexibility|Parquet benefits from a defined schema, ensuring data consistency and enabling more efficient compression and query optimization.|It does not enforce a strict schema, providing flexibility in terms of column quantity and types.|
 |Column Pruning|Columnar format allows for column pruning, a significant performance enhancement that isn't possible with row-based formats like CSV.||
 |Popularity|Parquet has gained substantial traction outside the Hadoop ecosystem, with projects like Delta Lake being built on Parquet files. While Avro is popular within the Hadoop ecosystem, it lacks built-in readers in Spark and Pandas.||
@@ -414,7 +414,7 @@ The choice between Parquet and CSV is contingent on the specific requirements, u
 |Complex Column Types|Parquet supports complex column types like arrays, dictionaries, and nested schemas, which cannot be reliably stored in simple file formats like CSV.||
 |Immutability|Parquet files are immutable. This characteristic means that while it's easy to add a row to a CSV file, it's not as straightforward with a Parquet file.||
 |Data Lakes|In a big data environment, optimal disk layout of data is crucial. Parquet's ability to work with hundreds or thousands of files, disk partitioning, and compacting small files makes it an ideal choice for data lakes.||
-|Conclusion|**Parquet is typically favored when dealing with large datasets, analytical workloads, and complex data types, as it provides superior storage efficiency and query performance.**|CSV files are typically used for simpler tabular data, data interchange, and scenarios where human readability and ease of use are paramount.|
+|Conclusion|Parquet is typically favored when dealing with large datasets, analytical workloads, and complex data types, as it provides superior storage efficiency and query performance.|CSV files are typically used for simpler tabular data, data interchange, and scenarios where human readability and ease of use are paramount.|
 
 |Encoding methods|Parquet data can be compressed|
 |-|-|
